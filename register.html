@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Case Filing Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      padding: 30px;
+    }
+    .register-container {
+      max-width: 600px;
+      margin: auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    }
+    .register-container:hover {
+        transform: scale(1.02);
+    }
+    h2 {
+      text-align: center;
+      color: #1f2937;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #35528f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background: #1e40af;
+    }
+    #confirmationmessage{
+        background-color: rgba(101, 254, 101, 0.603);
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Case Filing Register Form</h2>
+    <form id="caseForm">
+      <label for="clientName">Client Name:</label>
+      <input type="text" id="clientName" name="clientName" required>
+
+      <label for="clientPhone">Client Phone Number:</label>
+      <input type="tel" id="clientPhone" name="clientPhone" required>
+
+      <label for="caseType">Type of Case:</label>
+      <select id="caseType" name="caseType" required>
+        <option value="">-- Select Type --</option>
+        <option value="Civil">Civil</option>
+        <option value="Criminal">Criminal</option>
+        <option value="Family">Family</option>
+        <option value="Property">Property</option>
+        <option value="Labor">Labor</option>
+        <option value="Cybercrime">Cybercrime</option>
+        <option value="Others">Others</option>
+      </select>
+
+      <label for="advocateName">Advocate Name:</label>
+      <input type="text" id="advocateName" name="advocateName" required>
+
+      <label for="ipcSection">IPC Section(s) to be Filed:</label>
+      <textarea id="ipcSection" name="ipcSection" rows="3" placeholder="Example: IPC 420, IPC 376" required></textarea>
+
+      <label for="enrollment">Lawyer Enrollment Number:</label>
+      <input type="text" id="enrollment" name="enrollment" required>
+
+      <button type="submit">Register Case</button>
+      <div id="confirmationMessage" style="margin-top: 20px; font-weight: bold; color: green;"></div>
+<button id="copyButton" style="display:none; margin-top: 10px; padding: 8px 12px; background: #10b981; color: white; border: none; border-radius: 5px; cursor: pointer;">
+  Copy Case ID
+</button>
+
+
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("caseForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent actual form submission
+      alert("Form submitted successfully!");
+      this.reset(); // Optional: clear the form after submission
+    });
+      document.getElementById("caseForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const date = new Date();
+    const dateStr = `${date.getFullYear()}${(date.getMonth()+1).toString().padStart(2,'0')}${date.getDate().toString().padStart(2,'0')}`;
+    const randomStr = Math.random().toString(36).substring(2, 8).toUpperCase();
+    const caseID = `CASE-${dateStr}-${randomStr}`;
+
+    const messageDiv = document.getElementById("confirmationMessage");
+    messageDiv.innerHTML = ` Case filed successfully!<br>Your Case ID: <span id="caseIdText">${caseID}</span>`;
+
+    const copyBtn = document.getElementById("copyButton");
+    copyBtn.style.display = "inline-block";
+    copyBtn.onclick = function() {
+      const caseIdText = document.getElementById("caseIdText").innerText;
+      navigator.clipboard.writeText(caseIdText).then(() => {
+        copyBtn.innerText = "Copied!";
+        setTimeout(() => {
+          copyBtn.innerText = "Copy Case ID";
+        }, 2000);
+      });
+    };
+
+    this.reset();
+  });
+  </script>
+</body>
+</html>

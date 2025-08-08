@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Latest Judgments | Lexify</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: #fff;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.8em;
+      color: #00ffe1;
+      margin-bottom: 30px;
+    }
+    .judgment-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-left: 5px solid #00ffe1;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      max-width: 850px;
+      transition: transform 0.3s ease;
+    }
+    .judgment-card:hover {
+      transform: scale(1.02);
+    }
+    .judgment-card h2 {
+      margin: 0 0 10px;
+      font-size: 1.6em;
+      color: #ffffff;
+    }
+    .judgment-card p {
+      margin: 6px 0;
+      line-height: 1.5;
+    }
+    .judgment-card .summary {
+      font-style: italic;
+      color: #d1d1d1;
+    }
+    .btn {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #00ffe1;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #fff;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .modal-content {
+      background-color: #1e3c72;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 800px;
+      color: white;
+      position: relative;
+      animation: slideDown 0.5s ease;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .close {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #00ffe1;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📄 Latest Judgments</h1>
+
+  <div class="judgment-card">
+    <h2>Amit Verma vs State of Maharashtra</h2>
+    <p><strong>Date:</strong> April 25, 2025</p>
+    <p><strong>Bench:</strong> Hon'ble Justice A. Mishra & Justice B. Iyer</p>
+    <p class="summary">Court upheld the conviction under IPC 302, emphasizing importance of eyewitness testimony.</p>
+    <span class="btn" onclick="openModal(0)">Read Full Judgment</span>
+  </div>
+
+  <div class="judgment-card">
+    <h2>Shalini Enterprises vs Global Tech Ltd.</h2>
+    <p><strong>Date:</strong> April 23, 2025</p>
+    <p><strong>Bench:</strong> Hon'ble Justice M. Desai</p>
+    <p class="summary">Court ruled in favor of petitioner citing breach of contract and awarded compensation.</p>
+    <span class="btn" onclick="openModal(1)">Read Full Judgment</span>
+  </div>
+
+  <div class="judgment-card">
+    <h2>Anita Kumari vs Central Board of Education</h2>
+    <p><strong>Date:</strong> April 22, 2025</p>
+    <p><strong>Bench:</strong> Hon'ble Justice K. George</p>
+    <p class="summary">Court emphasized constitutional rights and ordered re-evaluation of exam paper.</p>
+    <span class="btn" onclick="openModal(2)">Read Full Judgment</span>
+  </div>
+
+  <div class="judgment-card">
+    <h2>Ramesh Gupta vs MCD</h2>
+    <p><strong>Date:</strong> April 20, 2025</p>
+    <p><strong>Bench:</strong> Hon'ble Justice F. Khan</p>
+    <p class="summary">Court ordered compensation for unlawful demolition of property.</p>
+    <span class="btn" onclick="openModal(3)">Read Full Judgment</span>
+  </div>
+
+  <div class="judgment-card">
+    <h2>Dr. K. Suresh vs Ministry of Health</h2>
+    <p><strong>Date:</strong> April 18, 2025</p>
+    <p><strong>Bench:</strong> Hon'ble Justice R. Patil</p>
+    <p class="summary">Judgment ordered reinstatement of doctor after wrongful termination.</p>
+    <span class="btn" onclick="openModal(4)">Read Full Judgment</span>
+  </div>
+
+  <div class="judgment-card">
+    <h2>Nikhil Sharma vs Union Bank of India</h2>
+    <p><strong>Date:</strong> April 17, 2025</p>
+    <p><strong>Bench:</strong> Hon'ble Justice P. Banerjee</p>
+    <p class="summary">Court awarded compensation for mental harassment due to illegal account freeze.</p>
+    <span class="btn" onclick="openModal(5)">Read Full Judgment</span>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="judgmentModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Lexify Digital Justice Hub | Powered by LegalTech India
+  </footer>
+
+  <script>
+    const judgments = [
+      {
+        title: "Amit Verma vs State of Maharashtra",
+        text: "In this case, the Hon’ble Supreme Court emphasized the importance of eyewitness testimony. The court upheld the conviction under Section 302 IPC based on consistent witness depositions and forensic evidence. The judgment also set guidelines for handling hostile witnesses in future cases."
+      },
+      {
+        title: "Shalini Enterprises vs Global Tech Ltd.",
+        text: "The Commercial Bench ruled that Global Tech Ltd. breached contract terms and failed to deliver agreed products within stipulated time. The court awarded ₹12 lakhs in damages with 6% annual interest and emphasized the sanctity of commercial contracts under the Indian Contract Act."
+      },
+      {
+        title: "Anita Kumari vs Central Board of Education",
+        text: "The court held that procedural fairness was violated in the marking scheme. It directed the CBSE to constitute a special panel for re-evaluation of answer sheets. The judgment reinforced Article 14 (Right to Equality) in academic assessments."
+      },
+      {
+        title: "Ramesh Gupta vs MCD",
+        text: "The petitioner was awarded ₹5 lakhs compensation for unlawful demolition of his residential property. The court issued strict directions to civic bodies regarding advance notice and verification before demolitions."
+      },
+      {
+        title: "Dr. K. Suresh vs Ministry of Health",
+        text: "The court found that Dr. Suresh was terminated without due process under the Central Civil Services Rules. It reinstated his position with full back wages and directed the ministry to conduct future inquiries transparently."
+      },
+      {
+        title: "Nikhil Sharma vs Union Bank of India",
+        text: "Bank authorities had frozen Nikhil Sharma’s account citing suspicion, but failed to notify him. The court condemned this act as arbitrary and violative of natural justice. ₹2 lakhs was awarded for mental agony and financial disruption."
+      }
+    ];
+
+    function openModal(index) {
+      document.getElementById("modalTitle").innerText = judgments[index].title;
+      document.getElementById("modalText").innerText = judgments[index].text;
+      document.getElementById("judgmentModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("judgmentModal").style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById("judgmentModal");
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+
+</body>
+</html>

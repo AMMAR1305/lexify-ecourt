@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cause List - Lexify Digital Justice Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9d5eaf8.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #eef2f7;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.3rem;
+    }
+
+    .search-bar {
+      margin: 2rem auto;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .search-bar input {
+      width: 80%;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .cause-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.8rem;
+      padding: 0 2rem 3rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      width: 370px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      animation: fadeIn 0.7s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: #2c3e50;
+    }
+
+    .court-logo {
+      font-size: 2rem;
+      color: #34495e;
+      float: right;
+    }
+
+    .details {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .details i {
+      margin-right: 8px;
+      color: #555;
+    }
+
+    .date-time {
+      text-align: right;
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 1rem;
+    }
+
+    .status-tag {
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .pending { background-color: #f39c12; }
+    .in-progress { background-color: #3498db; }
+    .disposed { background-color: #2ecc71; }
+
+    .view-btn {
+      margin-top: 1.2rem;
+      background-color: #2c3e50;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      border: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .view-btn:hover {
+      background-color: #1a242f;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #ecf0f1;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lexify Digital Justice Hub - Cause List</h1>
+</header>
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search by case no, court, judge..." onkeyup="filterCards()">
+</div>
+
+<div class="cause-list" id="causeList">
+  <!-- Dynamic cause cards will appear here -->
+</div>
+
+<div class="footer">© 2025 Lexify Digital Justice Hub | Designed for Smart Justice Access</div>
+
+<script>
+  const cases = [
+    {
+      court: "Supreme Court",
+      caseNo: "SC/2025/1201",
+      petitioner: "Amit Sharma",
+      respondent: "Union of India",
+      judge: "Justice A. Mehra",
+      date: "25-Apr-2025",
+      time: "10:30 AM",
+      status: "Pending"
+    },
+    {
+      court: "Delhi High Court",
+      caseNo: "DHC/2025/0432",
+      petitioner: "Priya Singh",
+      respondent: "State of Delhi",
+      judge: "Justice R. Khanna",
+      date: "25-Apr-2025",
+      time: "11:00 AM",
+      status: "In Progress"
+    },
+    {
+      court: "Bombay High Court",
+      caseNo: "BHC/2025/0987",
+      petitioner: "Rahul Deshmukh",
+      respondent: "Maharashtra Govt.",
+      judge: "Justice K. Jadhav",
+      date: "25-Apr-2025",
+      time: "12:00 PM",
+      status: "Disposed"
+    },
+    {
+      court: "Madras High Court",
+      caseNo: "MHC/2025/2105",
+      petitioner: "Sundar Raj",
+      respondent: "TN Police Dept.",
+      judge: "Justice L. Subramaniam",
+      date: "25-Apr-2025",
+      time: "2:00 PM",
+      status: "Pending"
+    }
+  ];
+
+  function renderCards(data) {
+    const container = document.getElementById('causeList');
+    container.innerHTML = '';
+    data.forEach(item => {
+      const statusClass = item.status.toLowerCase().replace(' ', '-');
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <h3><i class="fas fa-university court-logo"></i>${item.court}</h3>
+        <div class="details">
+          <p><i class="fas fa-hashtag"></i> <strong>Case No:</strong> ${item.caseNo}</p>
+          <p><i class="fas fa-user"></i> <strong>Petitioner:</strong> ${item.petitioner}</p>
+          <p><i class="fas fa-user-tie"></i> <strong>Respondent:</strong> ${item.respondent}</p>
+          <p><i class="fas fa-gavel"></i> <strong>Judge:</strong> ${item.judge}</p>
+          <p><i class="fas fa-flag"></i> <strong>Status:</strong> <span class="status-tag ${statusClass}">${item.status}</span></p>
+        </div>
+        <div class="date-time">
+          <i class="fas fa-calendar-alt"></i> ${item.date} &nbsp; | &nbsp;
+          <i class="fas fa-clock"></i> ${item.time}
+        </div>
+        <button class="view-btn">View Details</button>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function filterCards() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = cases.filter(item =>
+      item.caseNo.toLowerCase().includes(query) ||
+      item.court.toLowerCase().includes(query) ||
+      item.petitioner.toLowerCase().includes(query) ||
+      item.respondent.toLowerCase().includes(query) ||
+      item.judge.toLowerCase().includes(query) ||
+      item.status.toLowerCase().includes(query)
+    );
+    renderCards(filtered);
+  }
+
+  window.onload = () => {
+    renderCards(cases);
+  };
+</script>
+</body>
+</html>

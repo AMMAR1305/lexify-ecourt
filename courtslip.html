@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Court Slips</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px #00000060;
+        }
+        .court-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .court-slip {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .court-slip:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+        .court-slip h2 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        .court-slip p {
+            margin: 5px 0;
+            font-size: 0.95em;
+        }
+        .icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📜 Court Slips Directory</h1>
+
+    <div class="court-container">
+        <div class="court-slip">
+            <h2>1. Supreme Court of India</h2>
+            <p>📧 Email: supremecourt@nic.in</p>
+            <p>📞 Contact: +91-11-23388922</p>
+        </div>
+        <div class="court-slip">
+            <h2>2. High Court of Delhi</h2>
+            <p>📧 Email: hcd@nic.in</p>
+            <p>📞 Contact: +91-11-43010101</p>
+        </div>
+        <div class="court-slip">
+            <h2>3. Bombay High Court</h2>
+            <p>📧 Email: bom@mhc.tn.gov.in</p>
+            <p>📞 Contact: +91-22-22670148</p>
+        </div>
+        <div class="court-slip">
+            <h2>4. Calcutta High Court</h2>
+            <p>📧 Email: registrar_general@calcuttahighcourt.nic.in</p>
+            <p>📞 Contact: +91-33-22541765</p>
+        </div>
+        <div class="court-slip">
+            <h2>5. Madras High Court</h2>
+            <p>📧 Email: registry@hcmadras.tn.nic.in</p>
+            <p>📞 Contact: +91-44-25301349</p>
+        </div>
+        <div class="court-slip">
+            <h2>6. Karnataka High Court</h2>
+            <p>📧 Email: registrar@karnatakajudiciary.kar.nic.in</p>
+            <p>📞 Contact: +91-80-22954864</p>
+        </div>
+        <div class="court-slip">
+            <h2>7. Gujarat High Court</h2>
+            <p>📧 Email: registrar@gujarathighcourt.nic.in</p>
+            <p>📞 Contact: +91-79-27664601</p>
+        </div>
+        <div class="court-slip">
+            <h2>8. Rajasthan High Court</h2>
+            <p>📧 Email: hc-rj@nic.in</p>
+            <p>📞 Contact: +91-291-2541330</p>
+        </div>
+        <div class="court-slip">
+            <h2>9. Allahabad High Court</h2>
+            <p>📧 Email: hc-all@nic.in</p>
+            <p>📞 Contact: +91-532-2422335</p>
+        </div>
+        <div class="court-slip">
+            <h2>10. Kerala High Court</h2>
+            <p>📧 Email: highcourt.ker@nic.in</p>
+            <p>📞 Contact: +91-484-2562235</p>
+        </div>
+    </div>
+
+</body>
+</html>

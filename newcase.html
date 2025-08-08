@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Management Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #000000;
+            --accent-color: #ff6b6b;
+            --light-color: #f8f9fa;
+            --dark-color: #000000;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            animation: fadeInDown 0.8s ease;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            border-radius: 50px;
+            padding: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: var(--shadow);
+            animation: fadeIn 1s ease 0.3s both;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 30px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .logout-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        
+        .logout-btn:hover {
+            background-color: #e05555;
+            transform: translateY(-3px);
+        }
+        
+        .case-info {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .case-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .case-info h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 10px;
+        }
+        
+        .case-info p {
+            margin-bottom: 10px;
+        }
+        
+        .case-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .case-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .case-history {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .case-history h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 10px;
+        }
+        
+        .case-history ul {
+            list-style-type: none;
+        }
+        
+        .case-history li {
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: var(--light-color);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 0 5px 5px 0;
+            transition: var(--transition);
+        }
+        
+        .case-history li:hover {
+            transform: translateX(5px);
+            background-color: #e9ecef;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 10px;
+        }
+        
+        .enter-case {
+            text-align: center;
+            margin: 40px 0;
+            animation: pulse 2s infinite;
+        }
+        
+        .enter-case button {
+            background: linear-gradient(135deg, var(--accent-color), #ff8e8e);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            font-weight: 600;
+        }
+        
+        .enter-case button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.5);
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--secondary-color), transparent);
+            margin: 30px 0;
+        }
+        
+        strong {
+            color: var(--primary-color);
+        }
+        
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+    
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                border-radius: 10px;
+            }
+            
+            nav a, .logout-btn {
+                width: 100%;
+                text-align: center;
+                margin: 5px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Case Management Portal</h1>
+            <nav>
+                <a href="new homepage (1).html">Home</a>
+                <a href="#">About</a>
+                <a href="register.html">Register</a>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container" id="caseContainer">
+        
+    </div>
+
+    <script>
+    function loadCaseDetails() {
+        const selectedCase = JSON.parse(localStorage.getItem("selectedCase"));
+        const caseContainer = document.getElementById("caseContainer");
+
+        if (selectedCase) {
+            caseContainer.innerHTML = `
+                <div class="case-info">
+                    <h2>Case Name: ${selectedCase.name || 'N/A'}</h2>
+                    ${selectedCase.image ? `<img src="${selectedCase.image}" alt="${selectedCase.name}" class="case-image">` : ''}
+                    <p><strong>Name:</strong> ${selectedCase.person || 'N/A'}</p>
+                    <p><strong>Phone Number:</strong> ${selectedCase.phone || 'N/A'}</p>
+                    <p><strong>Case ID:</strong> ${selectedCase.caseId || 'N/A'}</p>
+                    <p><strong>Date:</strong> ${selectedCase.date || 'N/A'}</p>
+                </div>
+                
+                <div class="case-history">
+                    <h2>Case Details</h2>
+                    <p>${selectedCase.details || 'No details available'}</p>
+                </div>
+                
+                <div class="section">
+                    <h2>Schedule Timings</h2>
+                    <p><strong>Timing:</strong> ${selectedCase.timing || '10:00 AM - 12:00 PM'}</p>
+                </div>
+                
+                <div class="section">
+                    <h2>Court Details</h2>
+                    <p><strong>Judge:</strong> ${selectedCase.judge || 'Judge Name'}</p>
+                    <p><strong>Lawyer:</strong> ${selectedCase.lawyer || 'Lawyer Name'}</p>
+                </div>
+                
+                <div class="enter-case">
+<button onclick="enterCase()">ENTER CASE</button>
+                </div>
+            `;
+        } else {
+            // Redirect if no case is selected
+            window.location.href = "index.html";
+        }
+    }
+
+    function logout() {
+        localStorage.removeItem("selectedCase"); // Optional: Clear specific case data
+        // localStorage.clear(); // Uncomment to clear all data
+        window.location.href = "index.html"; // Redirect to homepage or login
+    }
+    function enterCase() {
+    // Redirect to the case detail or video hearing page
+    window.location.href = "brandnew_videocon.html"; // replace with your actual case page
+}
+
+
+    // Run on page load
+    window.onload = loadCaseDetails;
+</script>
+
+</body>
+</html>

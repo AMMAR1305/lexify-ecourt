@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <link rel="icon" href="logo.jpeg">
+  <title>LEXIFY E COURT JUDGEMENT </title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+
+    .title {
+      text-align: center;
+      margin-left: 20px;
+    }
+
+    p {
+      font-size: large;
+      font-family: 'Times New Roman', Times, serif;
+      color: #87643d;
+    }
+
+    .fn {
+      padding: 20px 100px;
+      background-color: rgb(65, 39, 13);
+      text-align: center;
+    }
+
+    td {
+      padding-left: 140px;
+    }
+
+    .imgcor {
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .container {
+      margin: 0;
+      padding: 0;
+    }
+
+    .links {
+      text-decoration: none;
+      color: black;
+    }
+
+    .links:hover {
+      text-decoration: underline;
+    }
+
+    .links-login {
+      text-decoration: none;
+      background-color: rgb(47, 46, 45);
+      padding: 10px 20px;
+      border-radius: 50px;
+      color: white;
+    }
+
+    .links-login:hover {
+      background-color: white;
+      border: 1px solid black;
+      color: black;
+    }
+
+    .carousel {
+      width:auto;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 1.0s ease;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .carousel-item img {
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .logo {
+      background-image:linear-gradient(rgb(255, 255, 255),rgb(191, 187, 187)) ;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .logoimg {
+      height: 60px;
+      width: 60px;
+      border-radius: 50px;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    .image-sidebar-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 30px 60px;
+      gap: 40px;
+    }
+
+    .left-image img {
+      width: 400px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .sidebar {
+      flex: 1;
+    }
+
+    .sidebar-item {
+      margin-bottom: 20px;
+      border-bottom: 2px solid rgb(0, 0, 0);
+      padding-bottom: 20px;
+      font-size: larger;
+      text-align: center;
+    }
+    .burger-menu {
+  font-size: 28px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1000;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 60px;
+  background-color: white;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 999;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid #ccc;
+}
+
+.dropdown-content a:hover {
+  background-color:#87643d;
+}
+footer a:hover {
+  text-decoration: underline;
+  color: #ccc;
+}
+.content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 30px 60px;
+      gap: 40px;
+    }
+    .rightimg img {
+      width: 600px;
+      height: 500px;
+      border-radius: 10px;
+    }
+    .secleft-image img {
+      width: 400px;
+      height: auto;
+      border-radius: 400px;
+    }
+    .secsidebar {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img class="logoimg" src="logo.jpeg" alt="Logo"/>
+      <h1 class="title">LEXIFY E-COURT JUDGEMENT</h1>
+    </div>
+    
+<div class="burger-menu" onclick="toggleMenu()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#531607"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></div>
+<div id="dropdown-menu" class="dropdown-content" style="background-color:rgb(65, 39, 13)">
+    <a style="color: #F0BB78;"href="index.html">Login</a>
+    <a style="color: #F0BB78;"href="register.html">Register</a>
+    <a style="color: #F0BB78;"href="#about">About</a>
+</div>
+
+  </header>
+
+  <nav class="fn"></nav>
+
+  <div class="container">
+   
+    <div class="slider-container">
+      <div class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            <img class="imgcor" src="https://img.freepik.com/free-photo/top-view-career-guidance-items-judges_23-2149443469.jpg" alt="Image 1"/>
+          </div>
+          <div class="carousel-item active">
+            <img class="imgcor" src="https://img.freepik.com/free-photo/still-life-with-scales-justice_23-2149776027.jpg?uid=R187506616&ga=GA1.1.1499171584.1746284033&semt=ais_hybrid&w=740" alt="Image 2"/>
+          </div>
+          <div class="carousel-item">
+            <img class="imgcor" src="https://img.freepik.com/free-photo/photorealistic-lawyer-environment_23-2151151939.jpg?uid=R187506616&ga=GA1.1.1499171584.1746284033&semt=ais_hybrid&w=740" alt="Image 3"/>
+          </div>
+          <div class="carousel-item">
+            <img class="imgcor" src="https://img.freepik.com/free-photo/gavel-with-books-old-wooden-desk_93675-129364.jpg?uid=R187506616&ga=GA1.1.1499171584.1746284033&semt=ais_hybrid&w=740" alt="Image 4"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="image-sidebar-section">
+      <div class="left-image">
+        <img src="leftimg.jpeg" alt="Information Image" />
+      </div>
+      <div class="sidebar">
+        <div class="sidebar-item"><a href="causelist.html" class="links">Cause List</a></div>
+        <div class="sidebar-item"><a href="courtslip.html" class="links">Court No. Slips</a></div>
+        <div class="sidebar-item"><a href="UVE.html" class="links">UVE Streaming</a></div>
+        <div class="sidebar-item"><a href="listingnotice.html" class="links">Listing Notices</a></div>
+        <div class="sidebar-item"><a href="latestjudgement.html" class="links">Latest Judgements</a></div>
+        <div class="sidebar-item"><a href="register.html" class="links-login">Register</a></div>
+        <div class="sidebar-item"><a href="newcase.html" class="links-login">Login</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="leftcontent">
+        <h2>Revolutionizing Legal Access Through Technology</h2>
+        <p>Lexify Justice Hub is a transformative initiative designed to modernize and streamline the Indian judicial system using advanced digital solutions. It serves as an all-in-one platform that simplifies legal processes and enhances transparency, efficiency, and accessibility for citizens, lawyers, and court officials. <br><br><br>
+
+          The project’s core objective is to bridge the gap between legal services and the common man. Through its AI-powered chatbot, Lexify provides instant support on various legal queries, including IPC sections, constitutional articles, and case procedures. Citizens can ask about case filing, check their case status using a name or case number, and even get details about the next hearing and timing—without visiting the court physically.<br><br><br>
+          
+          One of the standout features is Aadhaar-based user verification, ensuring secure access to personalized legal information. Users can upload legal documents directly through the platform, triggering intelligent analysis and guidance tailored to the document type. Lexify also offers a lawyer finder tool and appointment booking system, making legal consultation easier and more organized.
+          </p>
+    </div>
+    <div class="rightimg">
+      <img src="rightimg.jpeg"/>
+    </div>
+  </div>
+  <div class="image-sidebar-section">
+      <div class="secleft-image">
+        <img src="logo.jpeg" alt="Information Image" />
+      </div>
+      <div class="secsidebar">
+        <h2>Empowering Justice Delivery in the Digital Era</h2>
+        <p>The system includes a document checklist to assist users in preparing for hearings, and integrates with national databases to track cases in real-time. Its visually appealing user interface, icon-based navigation, and responsive design ensure a seamless user experience across devices.<br><br><br>
+
+        Lexify Justice Hub supports not only efficiency in legal processes but also democratization of legal knowledge. By using this platform, rural populations and tech-novice users gain equal access to justice, promoting legal literacy and empowerment.<br><br><br>
+        
+        In essence, Lexify is more than a digital tool—it is a vision to create a smarter, faster, and more inclusive justice delivery system for India, aligned with the goals of Digital India and accessible governance.<br><br><br></p>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background-color: #2f2e2d; color: white; padding: 40px 60px; display: flex; justify-content: space-between; flex-wrap: wrap; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="color:#F0BB78">LEXIFY E COURT JUDGEMENT </h3>
+      <p style="color:#F8F4E1 ;">The trusted digital platform for modern judiciary processes.</p>
+    </div>
+  
+    <div style="flex: 1; min-width: 200px;">
+      <h4 style="color:#F0BB78">Quick Links</h4>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li><a href="causelist.html" style="color: #F8F4E1; text-decoration: none;">Cause List</a></li>
+        <li><a href="courtslip.html" style="color: #F8F4E1; text-decoration: none;">Court No. Slips</a></li>
+        <li><a href="UVE.html" style="color: #F8F4E1; text-decoration: none;">UVE Streaming</a></li>
+        <li><a href="listingnotice.html" style="color: #F8F4E1; text-decoration: none;">Listing Notices</a></li>
+      </ul>
+    </div>
+  
+    <div style="flex: 1; min-width: 250px;">
+      <h4 style="color:#F0BB78">Contact Us</h4>
+      <p style="color:#F8F4E1 ;">Email: <a href="mailto:ecourt@nic.in" style="color: white;">ecourt@nic.in</a></p>
+      <p style="color:#F8F4E1 ;">Phone: 011-231164000</p>
+      <p style="color:#F8F4E1 ;">Location: Lexify E-Court , Delhi </p>
+    </div>
+  </footer>
+    <script>
+    const carousel = document.querySelector('.carousel-inner');
+    const items = document.querySelectorAll('.carousel-item');
+    let currentIndex = 0;
+
+    function nextSlide() {
+      items[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % items.length;
+      items[currentIndex].classList.add('active');
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    setInterval(nextSlide, 3000);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      items[currentIndex].classList.add('active');
+    });
+
+
+  function toggleMenu() {
+    const menu = document.getElementById('dropdown-menu');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+  }
+
+
+  document.addEventListener('click', function(event) {
+    const dropdown = document.getElementById('dropdown-menu');
+    const burger = document.querySelector('.burger-menu');
+    if (!dropdown.contains(event.target) && !burger.contains(event.target)) {
+      dropdown.style.display = 'none';
+    }
+  });
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Case Management Portal - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Case Management Portal</h1>
+    <nav>
+        <a href="new homepage (1).html" tabindex="0">Home</a>
+        <a  class="tooltip" href="#" tabindex="0">About <span class="tooltiptext">Enter your name,phone number <br>enter the caseID that is given during the process of Registeration of the case.</span></a>
+        <a href="register.html" tabindex="0">Register</a>
+    </nav>
+</header>
+
+<div class="login-container" role="main" aria-label="Login form section">
+    <h2>Login</h2>
+    <form onsubmit="login(event)" novalidate>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" autocomplete="name" required aria-required="true" aria-describedby="error" />
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" autocomplete="tel" required aria-required="true" aria-describedby="error" />
+
+        <label for="caseId">Case ID</label>
+        <input type="text" id="caseId" name="caseId" placeholder="Enter your case ID" required aria-required="true" aria-describedby="error" />
+
+        <button type="submit" aria-label="Submit login form">Login</button>
+    </form>
+    <p class="error" id="error" aria-live="polite" aria-atomic="true"></p>
+</div>
+
+<script>
+const cases = [
+    {
+        name: "Bomb Threat",
+        caseId: "23EE420",
+        person: "Ammar",
+        phone: "9876543210",
+        date: "March 15, 2024",
+        details: "A bomb threat was reported at a local shopping mall...",
+        timing: "10:00 AM - 12:00 PM",
+        judge: "Judge Name",
+        lawyer: "Lawyer Name",
+        image: "bomb_thread.jpg"
+    },
+    {
+        name: "Bengaluru School Bomb Threats",
+        caseId: "22BLR001",
+        person: "ashwin",
+        phone: "9751011818",
+        date: "April 8, 2022",
+        details: "Sixteen schools in Bengaluru received bomb threat emails...",
+        timing: "TBD",
+        judge: "TBD",
+        lawyer: "TBD",
+        image: "school-thread.jpg"
+    },
+    {
+        name: "Bihar High Court Bomb Threat",
+        caseId: "24BHR007",
+        person: "Ramesh Kumar",
+        phone: "9845612345",
+        date: "July 16, 2024",
+        details: "The Patna High Court received a bomb threat email, leading to increased security...",
+        timing: "11:00 AM - 01:00 PM",
+        judge: "Justice R. Prasad",
+        lawyer: "Advocate S. Verma",
+        image: "cmo-thread.jpg"
+    },{
+        name: "criminal",
+        caseId: "23EE320",
+        person: "faby",
+        phone: "1234567890",
+        date: "March 15, 2025",
+        details: "On 9th May 2025, sixteen schools across Bangalore received bomb threats via email, triggering mass evacuations, deployment of bomb squads, and widespread panic. Investigations confirmed the threats were hoaxes. However, a formal case was registered against unknown individuals. The incident is being treated as a serious offense under criminal conspiracy and public mischief sections of the Indian Penal Code.",
+        timing: "10:00 AM - 12:00 PM",
+        judge: "leo dass",
+        lawyer: "S. Raghavan",
+        image: "bomb_thread.jpg"
+    }
+];
+
+function login(event) {
+    event.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const caseId = document.getElementById("caseId").value.trim();
+    const errorElement = document.getElementById("error");
+
+    errorElement.textContent = '';
+    errorElement.classList.remove('visible');
+
+    // Filter out cases with 'Unknown' as person
+    const validCases = cases.filter(c => !c.person.toLowerCase().includes("unknown"));
+    const selectedCase = validCases.find(c => c.caseId === caseId && c.person === name && (c.phone === phone || c.phone === "Not available"));
+
+    if (selectedCase) {
+        localStorage.setItem("selectedCase", JSON.stringify(selectedCase));
+        window.location.href = "newcase.html";
+    } else {
+        errorElement.textContent = "Invalid login details. Please try again. If you have not registered,then resister your account and case.";
+        errorElement.classList.add('visible');
+    }
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Online Court Session</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background-color: #e9ecef; 
+            margin: 0; 
+            padding: 0; 
+            animation: fadeIn 1s; 
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .container { 
+            max-width: 800px; 
+            margin: auto; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 10px; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.2); 
+            transition: transform 0.3s; 
+            margin-top: 20px;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        h2 { 
+            text-align: center; 
+            color: #343a40; 
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 600;
+        }
+        h3 { 
+            color: #007bff; 
+            margin-top: 20px; 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 500;
+        }
+        .camera-icon { 
+            text-align: center; 
+            font-size: 50px; 
+            margin: 20px 0; 
+            color: #007bff; 
+        }
+        textarea { 
+            width: 100%; 
+            height: 100px; 
+            margin-bottom: 10px; 
+            border: 1px solid #ced4da; 
+            border-radius: 5px; 
+            padding: 10px; 
+            transition: border-color 0.3s; 
+            font-family: 'Roboto', sans-serif; 
+        }
+        textarea:focus {
+            border-color: #007bff; 
+            outline: none; 
+        }
+        button { 
+            padding: 10px 15px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.2s; 
+            margin: 5px 0;
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 600;
+        }
+        .submit-btn { 
+            background-color: #ff5722; 
+            color: white; 
+        }
+        .attach-btn { 
+            background-color: #4CAF50; 
+            color: white; 
+        }
+        .cancel-btn { 
+            background-color: #f44336; 
+            color: white; 
+        }
+        .video-conference {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            text-align: center;
+            animation: slideIn 0.5s;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .video-conference img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .join-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 600;
+        }
+        .join-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #343a40;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-family: 'Roboto', sans-serif; 
+        }
+    </style>
+</head>
+<body>
+    <div class="video-conference">
+        <img src="—Pngtree—business team at the video_5366356.png" alt="Video Conference" />
+        <a href="https://zoom.us/j/1234567890" target="_blank" class="join-btn">Join Zoom Meeting</a>
+    </div>
+    <div class="container">
+        <h2>Online Court Session</h2>
+        <div class="camera-icon">
+            <i class="fas fa-camera"></i>
+        </div>
+        <p>Welcome to the Online Court Session. This platform allows you to participate in court proceedings from the comfort of your home or office. Please ensure you have a stable internet connection and a quiet environment for the best experience.</p>
+        
+        <h3>Session Guidelines</h3>
+        <ul>
+            <li>Join the session at least 10 minutes early to resolve any technical issues.</li>
+            <li>Ensure your camera and microphone are working properly.</li>
+            <li>Dress appropriately as you would for an in-person court appearance.</li>
+            <li>Mute your microphone when not speaking to minimize background noise.</li>
+            <li>Follow the judge's instructions and respect courtroom decorum.</li>
+        </ul>
+
+        <h3>Technical Support</h3>
+        <p>If you encounter any technical difficulties during the session, please contact our support team at <a href="mailto:support@court.com">support@court.com</a>.</p>
+
+        <h3>Final Report Submission</h3>
+        <form>
+            <label for="final-report">Final Report</label>
+            <textarea id="final-report" placeholder="Enter final decision here..."></textarea>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        
+        <h3>Evidence Submission</h3>
+        <input type="file" id="pdf-upload" accept="application/pdf" style="display:none" />
+        <button class="attach-btn" id="attach-btn">Attach PDF</button>
+        <span id="file-name" style="margin-left: 10px; font-style: italic;"></span>
+        <br/>
+        <button class="submit-btn" id="submit-evidence" disabled>Submit Evidence</button>
+        <button class="cancel-btn" id="cancel-btn">Cancel</button>
+        <p id="submission-message" style="color: green; font-weight: bold; margin-top: 10px; display:none;">Successfully submitted</p>
+    </div>
+    <footer>
+        <p>&copy; 2025 Online Court System. All rights reserved.</p>
+    </footer>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        const attachBtn = document.getElementById('attach-btn');
+        const pdfUpload = document.getElementById('pdf-upload');
+        const fileNameSpan = document.getElementById('file-name');
+        const submitBtn = document.getElementById('submit-evidence');
+        const submissionMessage = document.getElementById('submission-message');
+        const cancelBtn = document.getElementById('cancel-btn');
+
+        attachBtn.addEventListener('click', () => {
+            pdfUpload.click();
+        });
+
+        pdfUpload.addEventListener('change', () => {
+            if (pdfUpload.files.length > 0) {
+                fileNameSpan.textContent = pdfUpload.files[0].name;
+                submitBtn.disabled = false;
+                submissionMessage.style.display = 'none';
+            } else {
+                fileNameSpan.textContent = '';
+                submitBtn.disabled = true;
+            }
+        });
+
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (pdfUpload.files.length > 0) {
+                submissionMessage.style.display = 'block';
+                
+                pdfUpload.value = '';
+                fileNameSpan.textContent = '';
+                submitBtn.disabled = true;
+            } else {
+                alert('Please attach a PDF file before submitting.');
+            }
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            pdfUpload.value = '';
+            fileNameSpan.textContent = '';
+            submitBtn.disabled = true;
+            submissionMessage.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
